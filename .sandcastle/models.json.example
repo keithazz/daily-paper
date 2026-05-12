@@ -1,0 +1,23 @@
+{
+  "_comment": "Pi model configuration. Copy to ~/.pi/agent/models.json or mount into the sandbox at /home/agent/.pi/agent/models.json. See https://github.com/badlogic/pi-mono for the canonical schema.",
+
+  "_networking_note": "From inside a Docker container, the host is reachable at host.docker.internal on Mac/Windows, or via the docker bridge IP on Linux (typically 172.17.0.1, or use --add-host=host.docker.internal:host-gateway). LM Studio defaults to port 1234.",
+
+  "providers": {
+    "lmstudio-host": {
+      "type": "openai-compatible",
+      "baseUrl": "http://host.docker.internal:1234/v1",
+      "apiKey": "lm-studio"
+    }
+  },
+
+  "models": {
+    "qwen-coder-local": {
+      "provider": "lmstudio-host",
+      "model": "qwen2.5-coder-32b-instruct",
+      "_note": "Replace with the model identifier as it appears in LM Studio's loaded-model list. Run `curl http://localhost:1234/v1/models` on the host to see the exact id."
+    }
+  },
+
+  "default": "qwen-coder-local"
+}

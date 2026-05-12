@@ -1,0 +1,10 @@
+# Logs and run artefacts — regenerated per run.
+logs/
+worktrees/
+baseline.txt
+
+# Local environment — never commit.
+.env
+
+# Pi config with secrets, if used.
+models.json
